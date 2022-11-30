@@ -1,13 +1,91 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 #calculator {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-areas:
+		"output output output output"
+		"clear plus-minus percent divide"
+		"seven eight nine multiply"
+		"four five six subtract"
+		"one two three add"
+		"zero zero point equals";
+	row-gap: 10px;
+	column-gap: 10px;
 	width: 200px;
 	height: 200px;
-	justify-content: center;
-	align-content: center;
 }
 
 #calculator > div {
 	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.output {
+	grid-area: output;
+}
+.zero {
+	grid-area: zero;
+}
+.one {
+	grid-area: one;
+}
+.two {
+	grid-area: two;
+}
+.three {
+	grid-area: three;
+}
+.four {
+	grid-area: four;
+}
+.five {
+	grid-area: five;
+}
+.six {
+	grid-area: six;
+}
+.seven {
+	grid-area: seven;
+}
+.eight {
+	grid-area: eight;
+}
+.nine {
+	grid-area: nine;
+}
+.add {
+	grid-area: add;
+}
+.subtract {
+	grid-area: subtract;
+}
+.multiply {
+	grid-area: multiply;
+}
+.divide {
+	grid-area: divide;
+}
+.equals {
+	grid-area: equals;
+}
+.point {
+	grid-area: point;
+}
+.clear {
+	grid-area: clear;
+}
+.plus-minus {
+	grid-area: plus-minus;
+}
+.percent {
+	grid-area: percent;
 }
