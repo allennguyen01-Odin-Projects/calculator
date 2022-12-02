@@ -1,11 +1,32 @@
+:root {
+	--body-background-color: #0f0f0f;
+}
+
+@font-face {
+	font-family: SF-Pro;
+	src: url(fonts/SF-Pro.ttf);
+}
+
+@font-face {
+	font-family: SF-Pro-Light;
+	src: url(fonts/SF-Pro-Text-Light.otf) format("opentype");
+}
+
 body {
+	font-family: SF-Pro;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: var(--body-background-color);
 }
 
-#calculator {
+h1 {
+	font-size: 50px;
+	color: white;
+}
+
+.calculator {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(6, 1fr);
@@ -18,15 +39,47 @@ body {
 		"zero zero point equals";
 	row-gap: 10px;
 	column-gap: 10px;
-	width: 200px;
-	height: 200px;
+	width: 320px;
+	height: 480px;
 }
 
-#calculator > div {
-	border: 1px solid black;
+/* .calculator > button, */
+.calculator > * {
+	display: grid;
+	place-items: center;
+	border: none;
+	border-radius: 45px;
+	font-family: SF-Pro;
+	font-size: 2em;
+	font-weight: 550;
+	background-color: rgb(53, 53, 53);
+	color: whitesmoke;
+}
+
+.output {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
+	font-family: SF-Pro-Light;
+	font-size: 4em;
+	font-weight: 100;
+	padding: 0 10px;
+	background-color: var(--body-background-color);
+}
+
+.zero {
+	display: flex;
+	justify-content: flex-start;
 	align-items: center;
+	padding-left: 0.9em;
+}
+
+.operator {
+	background-color: orange;
+}
+
+.top {
+	background-color: grey;
+	color: black;
 }
 
 .output {
