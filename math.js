@@ -6,7 +6,7 @@ function subtract(num1, num2) {
 	return num1 - num2;
 }
 
-function multiple(num1, num2) {
+function multiply(num1, num2) {
 	return num1 * num2;
 }
 
@@ -17,13 +17,13 @@ function divide(num1, num2) {
 function operate(operator, num1, num2) {
 	switch (operator) {
 		case "add":
-			add(num1, num2);
+			return add(num1, num2);
 		case "subtract":
-			subtract(num1, num2);
+			return subtract(num1, num2);
 		case "multiply":
-			multiply(num1, num2);
+			return multiply(num1, num2);
 		case "divide":
-			divide(num1, num2);
+			return divide(num1, num2);
 		default:
 			return TypeError;
 	}
@@ -34,6 +34,7 @@ output.textContent = "";
 let num1 = null;
 let operator = null;
 let num2 = null;
+let solution = null;
 
 function displayOutput() {
 	const numberButtons = document.querySelectorAll(".number");
@@ -64,6 +65,14 @@ function getOperator() {
 	);
 }
 
+function getSolution() {
+	const equals = document.querySelector(".equals");
+	equals.addEventListener("click", () => {
+		solution = operate(operator, num1, num2);
+		output.textContent = solution;
+	});
+}
+
 function clearOutput() {
 	const clear = document.querySelector(".clear");
 	clear.addEventListener("click", () => {
@@ -77,3 +86,6 @@ function clearOutput() {
 displayOutput();
 clearOutput();
 getOperator();
+getSolution();
+
+// module.exports = { add, subtract, multiply, divide, operate };
