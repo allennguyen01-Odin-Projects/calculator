@@ -63,6 +63,7 @@ h1 {
 	font-size: 4em;
 	font-weight: 100;
 	padding: 0 10px;
+	height: 80px;
 	background-color: var(--body-background-color);
 }
 
@@ -77,7 +78,7 @@ h1 {
 	background-color: orange;
 }
 
-.top {
+button.top {
 	background-color: grey;
 	color: black;
 }
