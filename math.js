@@ -36,6 +36,14 @@ let operator = null;
 let num2 = null;
 let solution = null;
 
+function debug() {
+	console.log("number1: ", num1);
+	console.log("number2: ", num2);
+	console.log("operator: ", operator);
+	console.log("solution: ", solution);
+	console.log("");
+}
+
 function displayOutput() {
 	const numberButtons = document.querySelectorAll(".number");
 	numberButtons.forEach((button) =>
@@ -46,9 +54,6 @@ function displayOutput() {
 			} else {
 				num2 = parseInt(output.textContent);
 			}
-			console.log("number1", num1, typeof num1);
-			console.log("number2", num2, typeof num2);
-			console.log("operator", operator, typeof operator);
 		})
 	);
 }
@@ -60,7 +65,6 @@ function getOperator() {
 			num1 = parseInt(output.textContent);
 			operator = button.classList[0];
 			output.textContent = null;
-			console.log(operator, typeof operator);
 		})
 	);
 }
@@ -87,5 +91,3 @@ displayOutput();
 clearOutput();
 getOperator();
 getSolution();
-
-// module.exports = { add, subtract, multiply, divide, operate };
