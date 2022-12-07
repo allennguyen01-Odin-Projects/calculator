@@ -44,50 +44,50 @@ function debug() {
 	console.log("");
 }
 
-function displayOutput() {
-	const numberButtons = document.querySelectorAll(".number");
-	numberButtons.forEach((button) =>
-		button.addEventListener("click", () => {
-			output.textContent += button.textContent;
-			if (operator === null) {
-				num1 = parseInt(output.textContent);
-			} else {
-				num2 = parseInt(output.textContent);
-			}
-		})
-	);
+function getOperand(button) {
+	output.textContent += button.textContent;
+	if (operator === null) {
+		num1 = parseInt(output.textContent);
+	} else {
+		num2 = parseInt(output.textContent);
+	}
+	debug();
 }
 
-function getOperator() {
-	const operatorButtons = document.querySelectorAll(".operator");
-	operatorButtons.forEach((button) =>
-		button.addEventListener("click", () => {
-			num1 = parseInt(output.textContent);
-			operator = button.classList[0];
-			output.textContent = null;
-		})
-	);
+function getOperator(button) {
+	num1 = parseInt(output.textContent);
+	operator = button.classList[0];
+	output.textContent = null;
+	debug();
 }
 
 function getSolution() {
-	const equals = document.querySelector(".equals");
-	equals.addEventListener("click", () => {
-		solution = operate(operator, num1, num2);
-		output.textContent = solution;
-	});
+	solution = operate(operator, num1, num2);
+	output.textContent = solution;
+	debug();
 }
 
 function clearOutput() {
-	const clear = document.querySelector(".clear");
-	clear.addEventListener("click", () => {
-		output.textContent = null;
-		operator = null;
-		num1 = null;
-		num2 = null;
-	});
+	output.textContent = null;
+	operator = null;
+	num1 = null;
+	num2 = null;
+	solution = null;
+	debug();
 }
 
-displayOutput();
-clearOutput();
-getOperator();
-getSolution();
+const numberButtons = document.querySelectorAll(".number");
+numberButtons.forEach((button) =>
+	button.addEventListener("click", () => getOperand(button))
+);
+
+const operatorButtons = document.querySelectorAll(".operator");
+operatorButtons.forEach((button) =>
+	button.addEventListener("click", () => getOperator(button))
+);
+
+const equals = document.querySelector(".equals");
+equals.addEventListener("click", getSolution);
+
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", clearOutput);
