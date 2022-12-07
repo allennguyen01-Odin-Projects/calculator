@@ -40,7 +40,6 @@ function getSolution() {
 	debug();
 }
 
-
 function clearOutput() {
 	output.textContent = null;
 	operator = null;
@@ -52,6 +51,10 @@ function clearOutput() {
 
 function toPercent() {
 	output.textContent /= 100;
+}
+
+function switchSign() {
+	output.textContent = output.textContent.startsWith("-") ? output.textContent.slice(1) : "-" + output.textContent;
 }
 
 const numberButtons = document.querySelectorAll(".number");
@@ -72,6 +75,9 @@ clear.addEventListener("click", clearOutput);
 
 const percent = document.querySelector(".percent");
 percent.addEventListener("click", toPercent);
+
+const plusMinus = document.querySelector(".plus-minus");
+plusMinus.addEventListener("click", switchSign);
 
 function add(num1, num2) {
 	return num1 + num2;
