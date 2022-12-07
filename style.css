@@ -79,6 +79,12 @@ h1 {
 	background-color: orange;
 }
 
+.operator:focus {
+	transition: 0.5s;
+	background-color: white;
+	color: orange;
+}
+
 button.top {
 	background-color: grey;
 	color: black;
