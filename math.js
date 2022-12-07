@@ -40,6 +40,7 @@ function getSolution() {
 	debug();
 }
 
+
 function clearOutput() {
 	output.textContent = null;
 	operator = null;
@@ -47,6 +48,10 @@ function clearOutput() {
 	num2 = null;
 	solution = null;
 	debug();
+}
+
+function toPercent() {
+	output.textContent /= 100;
 }
 
 const numberButtons = document.querySelectorAll(".number");
@@ -64,6 +69,9 @@ equals.addEventListener("click", getSolution);
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", clearOutput);
+
+const percent = document.querySelector(".percent");
+percent.addEventListener("click", toPercent);
 
 function add(num1, num2) {
 	return num1 + num2;
