@@ -27,15 +27,15 @@ function getOperand(button) {
 function getOperator(button) {
 	if (operator !== null) getSolution();
 
-	num1 = parseInt(output.textContent);
+	num1 = parseFloat(output.textContent);
 	operator = button.classList[0];
 	resetScreen = true;
 	debug();
 }
 
 function getSolution() {
-	num2 = parseInt(output.textContent);
-	solution = operate(operator, num1, num2);
+	num2 = parseFloat(output.textContent);
+	solution = Math.round(operate(operator, num1, num2) * 1000) / 1000;
 	output.textContent = solution;
 	debug();
 }
