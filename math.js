@@ -1,40 +1,10 @@
-function add(num1, num2) {
-	return num1 + num2;
-}
-
-function subtract(num1, num2) {
-	return num1 - num2;
-}
-
-function multiply(num1, num2) {
-	return num1 * num2;
-}
-
-function divide(num1, num2) {
-	return num1 / num2;
-}
-
-function operate(operator, num1, num2) {
-	switch (operator) {
-		case "add":
-			return add(num1, num2);
-		case "subtract":
-			return subtract(num1, num2);
-		case "multiply":
-			return multiply(num1, num2);
-		case "divide":
-			return divide(num1, num2);
-		default:
-			return TypeError;
-	}
-}
-
 let output = document.querySelector(".output");
 output.textContent = "";
 let num1 = null;
 let operator = null;
 let num2 = null;
 let solution = null;
+let resetScreen = false;
 
 function debug() {
 	console.log("number1: ", num1);
@@ -45,7 +15,10 @@ function debug() {
 }
 
 function getOperand(button) {
-	if (operate !== null) output.textContent = null;
+	if (resetScreen) {
+		output.textContent = null;
+		resetScreen = false;
+	}
 	
 	output.textContent += button.textContent;
 	debug();
@@ -56,6 +29,7 @@ function getOperator(button) {
 
 	num1 = parseInt(output.textContent);
 	operator = button.classList[0];
+	resetScreen = true;
 	debug();
 }
 
@@ -90,3 +64,34 @@ equals.addEventListener("click", getSolution);
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", clearOutput);
+
+function add(num1, num2) {
+	return num1 + num2;
+}
+
+function subtract(num1, num2) {
+	return num1 - num2;
+}
+
+function multiply(num1, num2) {
+	return num1 * num2;
+}
+
+function divide(num1, num2) {
+	return num1 / num2;
+}
+
+function operate(operator, num1, num2) {
+	switch (operator) {
+		case "add":
+			return add(num1, num2);
+		case "subtract":
+			return subtract(num1, num2);
+		case "multiply":
+			return multiply(num1, num2);
+		case "divide":
+			return divide(num1, num2);
+		default:
+			return TypeError;
+	}
+}
