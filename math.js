@@ -19,6 +19,7 @@ function getOperand(button) {
 		output.textContent = null;
 		resetScreen = false;
 	}
+	if (output.textContent.includes(".") && button.textContent == ".") return;
 	
 	output.textContent += button.textContent;
 	debug();
