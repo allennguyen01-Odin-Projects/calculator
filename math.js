@@ -45,23 +45,22 @@ function debug() {
 }
 
 function getOperand(button) {
+	if (operate !== null) output.textContent = null;
+	
 	output.textContent += button.textContent;
-	if (operator === null) {
-		num1 = parseInt(output.textContent);
-	} else {
-		num2 = parseInt(output.textContent);
-	}
 	debug();
 }
 
 function getOperator(button) {
+	if (operator !== null) getSolution();
+
 	num1 = parseInt(output.textContent);
 	operator = button.classList[0];
-	output.textContent = null;
 	debug();
 }
 
 function getSolution() {
+	num2 = parseInt(output.textContent);
 	solution = operate(operator, num1, num2);
 	output.textContent = solution;
 	debug();
